@@ -1,0 +1,12 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-soft text-cocoa font-sans antialiased}
+h1,h2,h3{@apply font-serif font-medium}
+.btn{@apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sagedark disabled:opacity-50}
+.btn-dark{@apply btn bg-cocoa text-cream hover:bg-sagedark}
+.btn-line{@apply btn border border-cocoa/30 hover:bg-blush/50}
+.inp{@apply w-full rounded-xl border border-cocoa/20 bg-white px-4 py-3 text-sm focus:border-sagedark focus:outline-none}
+.card{@apply rounded-3xl bg-white border border-cocoa/10 overflow-hidden}
+@keyframes bloom{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.bloom{animation:bloom .9s ease both}
+@media(prefers-reduced-motion:reduce){.bloom{animation:none}}
+@media print{.noprint{display:none!important}}
