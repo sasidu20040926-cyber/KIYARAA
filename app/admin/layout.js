@@ -14,5 +14,13 @@ export default function AdminLayout({children}){
   {state==='denied'&&<p className="text-rose text-sm">This account is not an administrator. Add it to admin_users (see README).</p>}
   <input className="inp" type="email" placeholder="Email" value={e} onChange={x=>setE(x.target.value)} required/><input className="inp" type="password" placeholder="Password" value={p} onChange={x=>setP(x.target.value)} required/>{err&&<p className="text-rose text-sm">{err}</p>}<button className="btn-dark w-full">Sign in</button>
   {state==='denied'&&<button type="button" className="underline text-sm" onClick={()=>supabase.auth.signOut().then(()=>setState('login'))}>Sign out</button>}</form></div>
- const N=[['Dashboard','/admin'],['Products','/admin/products'],['Categories','/admin/categories'],['Orders','/admin/orders'],['Customers','/admin/customers'],['Settings','/admin/settings']]
+const N=[
+  ['Dashboard','/admin'],
+  ['Products','/admin/products'],
+  ['Bouquet Flowers','/admin/bouquet-flowers'],
+  ['Categories','/admin/categories'],
+  ['Orders','/admin/orders'],
+  ['Customers','/admin/customers'],
+  ['Settings','/admin/settings']
+]
  return <div className="min-h-screen bg-cream/60 md:flex"><aside className="md:w-56 bg-cocoa text-cream p-5 noprint"><div className="font-serif text-2xl tracking-[.25em] mb-6">KIYARAA</div><nav className="flex md:flex-col gap-3 flex-wrap text-sm">{N.map(([t,h])=><Link key={h} href={h}>{t}</Link>)}<Link href="/" className="opacity-60">View site</Link><button className="text-left opacity-60" onClick={()=>supabase.auth.signOut().then(()=>setState('login'))}>Log out</button></nav></aside><div className="flex-1 p-5 md:p-8 min-w-0">{children}</div></div>}
